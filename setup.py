@@ -15,7 +15,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Ethosa",
     author_email="social.ethosa@gmail.com",
-    version="1.0.0",
+    version="1.0.1",
     url="https://github.com/ethosa/ktc-api",
     install_requires=[
         'requests',

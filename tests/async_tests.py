@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from asyncio import new_event_loop
 
-from src.aio import AKTCClient
+from src.ktc_api.aio import AKTCClient
 
 
 async def main():
