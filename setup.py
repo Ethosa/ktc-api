@@ -15,15 +15,16 @@ setup(
     long_description_content_type="text/markdown",
     author="Ethosa",
     author_email="social.ethosa@gmail.com",
-    version="0.1.0",
+    version="1.0.0",
     url="https://github.com/ethosa/ktc-api",
     install_requires=[
         'requests',
-        'pydantic'
+        'pydantic',
+        'aiohttp'
     ],
     package_dir={'': 'src'},
     packages=find_packages('src'),
-    python_requires='>=3.10',
+    python_requires='>=3.8',
     keywords=['client', 'api-client', 'api'],
     classifiers=[
         'Development Status :: 4 - Beta',

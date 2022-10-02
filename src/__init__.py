@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Any, Dict, List
+from typing import List
 
 from requests import Session
 from pydantic import parse_obj_as
