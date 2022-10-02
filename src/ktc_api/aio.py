@@ -3,7 +3,7 @@ from typing import List
 
 from aiohttp import ClientSession
 from pydantic import parse_obj_as
-from .types import ActualVersion, Branch, Course, Timetable, Teachers, TeacherTimetable, News, Post
+from .types import ActualVersion, Branch, Course, Timetable, Teachers, TeacherTimetable, News, Post, Grade
 
 
 class AKTCClient:
@@ -49,3 +49,13 @@ class AKTCClient:
     async def timetable(self, group_id: int, week: int = 0) -> Timetable:
         response = await self.session.get(f'{self.API_URL}/ktc-api/timetable/{group_id}/{week}')
         return parse_obj_as(Timetable, await response.json())
+
+    async def grades(self, username: str, password: str) -> List[Grade]:
+        response = await self.session.get(
+            f'{self.API_URL}/ktc-api/pro/grades',
+            params={
+                'username': username,
+                'password': password
+            }
+        )
+        return parse_obj_as(List[Grade], await response.json())

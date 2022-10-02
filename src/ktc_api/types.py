@@ -80,3 +80,15 @@ class Post(BaseModel):
 class News(BaseModel):
     announce: List[Post]
     news: List[Post]
+
+
+class OneGrade(BaseModel):
+    title: str
+    grade: int
+
+
+class Grade(BaseModel):
+    title: str
+    grades: List[OneGrade]  # all grades
+    final_grade: str
+    skipped: str  # skipped hours

@@ -3,7 +3,7 @@ from typing import List
 
 from requests import Session
 from pydantic import parse_obj_as
-from .types import ActualVersion, Branch, Course, Timetable, Teachers, TeacherTimetable, News, Post
+from .types import ActualVersion, Branch, Course, Timetable, Teachers, TeacherTimetable, News, Post, Grade
 
 
 class KTCClient:
@@ -53,4 +53,13 @@ class KTCClient:
     def timetable(self, group_id: int, week: int = 0) -> Timetable:
         return parse_obj_as(Timetable, self.session.get(
             f'{self.API_URL}/ktc-api/timetable/{group_id}/{week}'
+        ).json())
+
+    def grades(self, username: str, password: str) -> List[Grade]:
+        return parse_obj_as(List[Grade], self.session.get(
+            f'{self.API_URL}/ktc-api/pro/grades',
+            params={
+                'username': username,
+                'password': password
+            }
         ).json())

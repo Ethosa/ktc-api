@@ -45,6 +45,10 @@ class ClientTestCase(TestCase):
         print(response.week_number)
         print(response.days)
 
+    def test_grades(self):
+        response = self.client.grades('username', 'password')
+        print(response[-1].title)
+
 
 if __name__ == '__main__':
     main(verbosity=2)
